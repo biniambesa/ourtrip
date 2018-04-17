@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "event_name": "Flight",
+        "event_date": "2012-04-23T18:25:43.511Z",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
+        "duration": 4,
+        "image": {
+          "small": "/images/sony-xperia-z3.jpg",
+          "large": "/images/sony-xperia-z3-large.jpg"
+        },
+        "participants": {
+          "email": "B.hagos17@gmail.com",
+          "name": "Biniam",
+          "at_event": true,
+          "when": "2012-04-23T18:25:43.511Z"
+        },
+        "email": "m.hagos17@gmail.com",
+          "name": "Mical",
+          "at_event": true,
+          "when": "2012-04-23T18:25:43.511Z"
+        
+      },
+    {
+        "id": 2,
+        "event_name": "German",
+        "event_date": "2012-04-23T18:25:43.511Z",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
+        "duration": 4,
+        "image": {
+          "small": "/images/sony-xperia-z3.jpg",
+          "large": "/images/sony-xperia-z3-large.jpg"
+        },
+        "participants": {
+          "email": "B.hagos17@gmail.com",
+          "name": "Biniam",
+          "at_event": true,
+          "when": "2012-04-23T18:25:43.511Z"
+        },
+        "email": "m.hagos17@gmail.com",
+          "name": "Mical",
+          "at_event": true,
+          "when": "2012-04-23T18:25:43.511Z"
+        
+      }
+  ]
