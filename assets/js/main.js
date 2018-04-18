@@ -77,88 +77,73 @@ var cardsInPlay = [];
 var cardClicked = function () {
   console.log("card is clicked")
 }
+var userClicked = function (email) {
+  console.log("user with " + email + " clicked")
+}
 var creatBoard = function(){
-    //console.log("new game, start or finish this one first")
-  
+    
+    // first create UL
+    var listElement = document.createElement('ul');
+    listElement.setAttribute('class', "eventsList");
+
+    //loop through events
     for(var i = 0; i <Events.length; i++){
-      var listElement = document.createElement('ul');
-      listElement.setAttribute('id', "eventsList");
       
+      //create li elements
       var eventCard = document.createElement('li');
       eventCard.setAttribute('data-index', Events[i].id);
-      eventCard.setAttribute('id', "eventCard")
-      listElement.appendChild(eventCard);
 
+      //create card div
+      var card = document.createElement('div');
+      card.setAttribute('class', "card");
+      card.addEventListener('click', cardClicked);
+      
+      //add image to div
       var eventImage = document.createElement('img');
+      eventImage.setAttribute('alt', "event_image");
+      eventImage.setAttribute( 'class', "rounded mx-auto d-block");
       eventImage.setAttribute('src',Events[i].images.large_img);
-      eventCard.appendChild(eventImage);
+      card.appendChild(eventImage);
 
+      //create container div
+      var container = document.createElement('div');
+      container.setAttribute('class', "container");
+
+      //create content to add to container
       var eventTitle = document.createElement('H1');
       var titleNode = document.createTextNode(Events[i].event_name);
       eventTitle.appendChild(titleNode);
-      eventCard.appendChild(eventTitle);
+      container.appendChild(eventTitle);
 
       var eventDesc = document.createElement('H3');
       var descNode = document.createTextNode(Events[i].description);
       eventDesc.appendChild(descNode);
-      eventCard.appendChild(eventDesc);
+      container.appendChild(eventDesc);
 
+      // loop through participants and display in container
       var ps = Events[i].participants
       var participantsList = document.createElement('ul');
       participantsList.setAttribute('class', "participants-list");
-      for(var p = 0; p < ps.length; i++){
+      for(var p = 0; p < ps.length; p++){
         var list = document.createElement("li");
-        var listText = document.createTextNode(ps[p].name);
-        console.log(listText)
-      list.appendChild(listText);
+        list.setAttribute('class', "participant");
+        var user_name = document.createTextNode(ps[p].name);
+        list.appendChild(user_name);
+        list.addEventListener('click', userClicked(ps[p].email))
       participantsList.appendChild(list);
       }
-      eventCard.appendChild(participantsList);
+      container.appendChild(participantsList);
       
-      
-      
-
-    //   <ul class="product-description">
-    //   <li><span>Manufacturer: </span>{{specs.manufacturer}}</li>
-    //   <li><span>Storage: </span>{{specs.storage}} GB</li>
-    //   <li><span>OS: </span>{{specs.os}}</li>
-    //   <li><span>Camera: </span>{{specs.camera}} Mpx</li>
-    // </ul>
-      eventCard.addEventListener('click', cardClicked);
+      listElement.appendChild(eventCard);
+      card.appendChild(container);
+      eventCard.appendChild(card);
+    
       document.getElementById('main-content').appendChild(listElement);
     }
-    // document.getElementById('score').innerHTML(currentScore)
+
   
   }
 
-//   function participantsLoop(i) {
-//     var participantsList = document.createElement('ul');
-//     participantsList.setAttribute('class', "participants-list");
 
-//     console.log(ps.length)
-//     for(var p = 0; p < ps.length; i++){
-//       var list = document.createElement("li");
-//       var listText = document.createTextNode(ps[p].name);
-//       console.log(listText)
-//     list.appendChild(listText);
-//     participantsList.appendChild(list);
-//     }
-
-//     return participantsList;
-// }
 
 creatBoard()
-//<ul class="products-list">;
-/* <li data-index="{{id}}">
-            <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
-            <h2><a href="#"> {{name}} </a></h2>
-            <ul class="product-description">
-              <li><span>Manufacturer: </span>{{specs.manufacturer}}</li>
-              <li><span>Storage: </span>{{specs.storage}} GB</li>
-              <li><span>OS: </span>{{specs.os}}</li>
-              <li><span>Camera: </span>{{specs.camera}} Mpx</li>
-            </ul>
-            <button>Buy Now!</button>
-            <p class="product-price">{{price}}$</p>
-            <div class="highlight"></div>
-          </li> */
