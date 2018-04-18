@@ -73,8 +73,14 @@ footer p {
     margin-bottom: 10px; /* Added */
 }
 
-.card img{
-	width: 100%;
+.img{
+  display: block;
+  max-width:100%;
+  max-height:50%;
+  object-fit:fill;
+  width: auto;
+  height: auto;
+  margin: auto;
 }
 
 .card ul{
@@ -84,12 +90,18 @@ footer p {
 .card ul li{
 	display: inline;
 	border-bottom: 2px solid transparent;
+	border-radius: 25%;
     text-decoration: none;
-	padding: 0px 4px 0px 0px;
+	background-color: lightcyan;
+	line-height:1.5;
+	padding: 2px 2px;
+	margin: 0 10px 0 0;
 }
 
 .card ul li:hover{
-	box-shadow: 0 8px 6px 0 rgba(61, 129, 184, 0.685);
+	box-shadow: 0 8px 6px 0 rgba(98, 148, 189, 0.685);
+	background-color:rgba(62, 211, 238, 0.8); 
+	border-radius: 25%;
 }
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -99,3 +111,6 @@ footer p {
     padding: 2px 16px;
 }
 
+.container{
+	overflow: hidden;
+}

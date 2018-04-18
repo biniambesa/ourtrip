@@ -8,7 +8,30 @@ var Events = [
     id: 1,
     event_name: "Flight",
     event_date: "2012-04-23T18:25:43.511Z",
-    description: "some description",
+    description: "flying from sf to norway",
+    duration: 4,
+    images: {
+      small_img: "./assets/images/flight.jpg",
+      large_img: "./assets/images/flight.jpg"
+    },
+    participants: [
+      {
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+    email: "m.hagos17@gmail.com",
+      name: "Mical",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    }
+  ]  
+  },{
+    id: 3,
+    event_name: "Flight",
+    event_date: "2012-04-23T18:25:43.511Z",
+    description: "flying from sf to norway",
     duration: 4,
     images: {
       small_img: "./assets/images/flight.jpg",
@@ -29,10 +52,10 @@ var Events = [
   ]  
   },
 {
-    id: 2,
-    event_name: "German",
+    id: 5,
+    event_name: "Convention",
     event_date: "2012-04-23T18:25:43.511Z",
-    description: "some description",
+    description: "3rd annual Eritrean convention of Jehovah's witness in Gernmany",
     duration: 4,
     images: {
       small_img: "./assets/images/germanConvention.jpg",
@@ -51,7 +74,74 @@ var Events = [
       when: "2012-04-23T18:25:43.511Z"
     }
   ]  
-  }
+  },
+  {
+    id: 6,
+    event_name: "Flight",
+    event_date: "2012-04-23T18:25:43.511Z",
+    description: "flying from sf to norway",
+    duration: 4,
+    images: {
+      small_img: "./assets/images/flight.jpg",
+      large_img: "./assets/images/flight.jpg"
+    },
+    participants: [
+      {
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+    email: "m.hagos17@gmail.com",
+      name: "Mical",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    }
+  ]  
+  },{
+    id: 7,
+    event_name: "spain",
+    event_date: "2018-09-23T18:25:43.511Z",
+    description: "tour spain",
+    duration: 4,
+    images: {
+      small_img: "./assets/images/spain.jpg",
+      large_img: "./assets/images/spain.jpg"
+    },
+    participants: [
+      {
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+    email: "m.hagos17@gmail.com",
+      name: "Mical",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+      email: "h.hagos@gmail.com",
+      name: "Hannah",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+      email: "kuku@gmail.com",
+      name: "Kisanet",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+      email: "B.yemane@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    }
+  ]  
+  },
 ]
 
 
@@ -87,7 +177,7 @@ var creatBoard = function(){
     listElement.setAttribute('class', "eventsList");
 
     //loop through events
-    for(var i = 0; i <Events.length; i++){
+    for(var i = Events.length - 1; i <= Events.length; i--){
       
       //create li elements
       var eventCard = document.createElement('li');
@@ -101,7 +191,7 @@ var creatBoard = function(){
       //add image to div
       var eventImage = document.createElement('img');
       eventImage.setAttribute('alt', "event_image");
-      eventImage.setAttribute( 'class', "rounded mx-auto d-block");
+      eventImage.setAttribute( 'class', "rounded mx-auto d-block img");
       eventImage.setAttribute('src',Events[i].images.large_img);
       card.appendChild(eventImage);
 
@@ -115,7 +205,7 @@ var creatBoard = function(){
       eventTitle.appendChild(titleNode);
       container.appendChild(eventTitle);
 
-      var eventDesc = document.createElement('H3');
+      var eventDesc = document.createElement('p');
       var descNode = document.createTextNode(Events[i].description);
       eventDesc.appendChild(descNode);
       container.appendChild(eventDesc);
