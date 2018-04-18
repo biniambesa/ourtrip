@@ -2,25 +2,59 @@ console.log("up and running....")
 var currentScore = 0;
 var scoreboard = document.getElementById('score');
 
-var cards = [
+var Events = [
     
-        { rank: 'Queen',
-          suit: 'Hearts',
-          image: "images/queen-of-hearts.png"
-        },  
-        { rank: 'Queen',
-          suit: 'Diamonds',
-          image: "images/queen-of-diamonds.png"
-        },
-        { rank: 'King',
-          suit: 'Hearts',
-          image: "images/king-of-hearts.png"
-        }, 
-        { rank: 'King',
-          suit: 'Diamonds',
-          image: "images/king-of-diamonds.png"
-      },
+  {
+    id: 1,
+    event_name: "Flight",
+    event_date: "2012-04-23T18:25:43.511Z",
+    description: "some description",
+    duration: 4,
+    images: {
+      small_img: "./assets/images/flight.jpg",
+      large_img: "./assets/images/flight.jpg"
+    },
+    participants: [
+      {
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+    email: "m.hagos17@gmail.com",
+      name: "Mical",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    }
+  ]  
+  },
+{
+    id: 2,
+    event_name: "German",
+    event_date: "2012-04-23T18:25:43.511Z",
+    description: "some description",
+    duration: 4,
+    images: {
+      small_img: "./assets/images/germanConvention.jpg",
+      large_img: "./assets/images/germanConvention.jpg"
+    },
+    participants: [
+      {
+      email: "B.hagos17@gmail.com",
+      name: "Biniam",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    },{
+    email: "m.hagos17@gmail.com",
+      name: "Mical",
+      at_event: true,
+      when: "2012-04-23T18:25:43.511Z"
+    }
+  ]  
+  }
 ]
+
+
 var cardsInPlay = [];
 
 // var checkForMatch = function(){
@@ -40,19 +74,91 @@ var cardsInPlay = [];
 //    if (cardsInPlay.length > 1){checkForMatch()};
 // }
 
-// var creatBoard = function(){
-//     //console.log("new game, start or finish this one first")
+var cardClicked = function () {
+  console.log("card is clicked")
+}
+var creatBoard = function(){
+    //console.log("new game, start or finish this one first")
   
-//     for(var i = 0; i <cards.length; i++){
-//       var ran = Math.random()*cards.length;
-//       var cardElement = document.createElement('img');
-//       cardElement.setAttribute('src',"images/back.png");
-//       cardElement.setAttribute('data-id', Math.floor(ran));
-//       cardElement.addEventListener('click', flipCard);
-//       document.getElementById('game-board').appendChild(cardElement);
-//     }
-//     document.getElementById('score').innerHTML(currentScore)
-//   }
- 
+    for(var i = 0; i <Events.length; i++){
+      var listElement = document.createElement('ul');
+      listElement.setAttribute('id', "eventsList");
+      
+      var eventCard = document.createElement('li');
+      eventCard.setAttribute('data-index', Events[i].id);
+      eventCard.setAttribute('id', "eventCard")
+      listElement.appendChild(eventCard);
 
-// creatBoard();
+      var eventImage = document.createElement('img');
+      eventImage.setAttribute('src',Events[i].images.large_img);
+      eventCard.appendChild(eventImage);
+
+      var eventTitle = document.createElement('H1');
+      var titleNode = document.createTextNode(Events[i].event_name);
+      eventTitle.appendChild(titleNode);
+      eventCard.appendChild(eventTitle);
+
+      var eventDesc = document.createElement('H3');
+      var descNode = document.createTextNode(Events[i].description);
+      eventDesc.appendChild(descNode);
+      eventCard.appendChild(eventDesc);
+
+      var ps = Events[i].participants
+      var participantsList = document.createElement('ul');
+      participantsList.setAttribute('class', "participants-list");
+      for(var p = 0; p < ps.length; i++){
+        var list = document.createElement("li");
+        var listText = document.createTextNode(ps[p].name);
+        console.log(listText)
+      list.appendChild(listText);
+      participantsList.appendChild(list);
+      }
+      eventCard.appendChild(participantsList);
+      
+      
+      
+
+    //   <ul class="product-description">
+    //   <li><span>Manufacturer: </span>{{specs.manufacturer}}</li>
+    //   <li><span>Storage: </span>{{specs.storage}} GB</li>
+    //   <li><span>OS: </span>{{specs.os}}</li>
+    //   <li><span>Camera: </span>{{specs.camera}} Mpx</li>
+    // </ul>
+      eventCard.addEventListener('click', cardClicked);
+      document.getElementById('main-content').appendChild(listElement);
+    }
+    // document.getElementById('score').innerHTML(currentScore)
+  
+  }
+
+//   function participantsLoop(i) {
+//     var participantsList = document.createElement('ul');
+//     participantsList.setAttribute('class', "participants-list");
+
+//     console.log(ps.length)
+//     for(var p = 0; p < ps.length; i++){
+//       var list = document.createElement("li");
+//       var listText = document.createTextNode(ps[p].name);
+//       console.log(listText)
+//     list.appendChild(listText);
+//     participantsList.appendChild(list);
+//     }
+
+//     return participantsList;
+// }
+
+creatBoard()
+//<ul class="products-list">;
+/* <li data-index="{{id}}">
+            <a href="#" class="product-photo"><img src="{{image.small}}" height="130" alt="{{name}}"/></a>
+            <h2><a href="#"> {{name}} </a></h2>
+            <ul class="product-description">
+              <li><span>Manufacturer: </span>{{specs.manufacturer}}</li>
+              <li><span>Storage: </span>{{specs.storage}} GB</li>
+              <li><span>OS: </span>{{specs.os}}</li>
+              <li><span>Camera: </span>{{specs.camera}} Mpx</li>
+            </ul>
+            <button>Buy Now!</button>
+            <p class="product-price">{{price}}$</p>
+            <div class="highlight"></div>
+          </li> */

@@ -16,31 +16,26 @@ Add color to your memory cards.
   should have: itinerary, messages, myTodos, log in log out
   --> 
    <nav>
-     <ul>
-     <li><a href="#instuction">Itinerary</a></li>
-     <li></li><a href="#game">Messages</a></li> <!-- should show alerts -->
-    <a herf="#myTodos"> myTodos</a> </li> <!-- should show count -->
-   <a href="log-in-log-out">log in</a></li>
-  </ul>
+      <ul>
+        <li id="itinerary_Btn" class="nav"><a>Itinerary</a></li>
+        <li id="messages_Btn"  class="nav"><a>Messages</a></li> <!-- should show alerts -->
+        <li id="mytodos_Btn"   class="nav"><a> myTodos</a> </li> <!-- should show count -->
+        <li id="login_Btn"     class="nav"><a>log in</a></li>
+      </ul>
   </nav>
 
 
     <div id="content" class="clearfix">
-       <div id="instuction">
-           <h2>Instructions</h2>
-          <p>
-            Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pexeso or simply Pairs, is a card game in which all of the cards are laid face down on a surface and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
-          </p>
-       </div>
+       
 
-        <div id="game-board" class="boarder clearfix"></div>
-        <div id="score-board">Current Score <span id="score"></span></div>
+        <div id="main-content" class="boarder clearfix"></div>
+
    </div>
   
   
     <footer class="clearfix">
      <p class="copyright">Copyright 2017</p>
-     <p class="message">Created with &hearts; by <span class="name">GA</span></p>
+     <p class="message">Created with <span id="love">&hearts;</span> by <span class="name">the beles clan</span></p>
    </footer>
    <script src="./assets/js/main.js"></script>
 

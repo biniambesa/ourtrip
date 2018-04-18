@@ -2,7 +2,8 @@
 nav{
     background-color: #00A6B3;
     /* color: #00A6B3; */
-    padding: 20px 0 20px 0;
+	padding: 20px 0 20px 0;
+	overflow: hidden;
 }
 nav ul {
     display: inline;
@@ -15,7 +16,8 @@ a{
     color: white;
     border-bottom: 2px solid transparent;
     text-decoration: none;
-    line-height: 1.5;
+	line-height: 1.5;
+	padding: 14px 16px;
 }
 a:hover{
     background-color: white;
@@ -25,6 +27,9 @@ a:hover{
 * {
 	margin:0;
 	padding:0;
+}
+#login_Btn{
+	float: right;
 }
 
 body{
@@ -37,11 +42,17 @@ h1, h3{
 footer{
 	position: fixed;
 	bottom: 0;
-	background:darkcyan;
+	background-color: #00A6B3;
 	text-align: center;
 	width: 100%;
+	height: 5%;
 }
 footer p {
 	display: inline;
 	padding: 0 20px 0 20px;
+	bottom: 0;
+	line-height: 30px;
+}
+#love{
+	color: orange;
 }
